@@ -1,11 +1,21 @@
 {
     "private": true,
     "scripts": {
-        "build": "cargo build --release",
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "build:cargo": "cargo build --release",
         "test": "cargo test --release",
         "fmt": "cargo fmt --all",
         "push": "wee test && git push",
         "reset": "git reset Head~ --soft",
-        "pub": "cargo-publish-all --yes --allow-dirty",
+        "pub": "cargo-publish-all --yes --allow-dirty"
+    },
+    "devDependencies": {
+        "vite": "^5.0.0",
+        "@vitejs/plugin-vue": "^4.5.0",
+        "vue": "^3.4.0",
+        "sass": "^1.69.0",
+        "typescript": "^5.3.0"
     }
 }

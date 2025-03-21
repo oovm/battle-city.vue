@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { onMounted, watchEffect } from 'vue'
-import init, { Game } from '@/wasm/battle_city'
+import {onMounted} from 'vue'
+import init, {Game} from '@/wasm/battle_city'
 
 defineProps<{
   level: number
@@ -12,22 +12,22 @@ onMounted(async () => {
   await init()
   const canvas = document.getElementById('gameCanvas') as HTMLCanvasElement
   const ctx = canvas.getContext('2d')!
-  
+
   const game = Game.new(canvas.width, canvas.height)
-  
+
   function gameLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     game.update()
     game.draw(ctx)
     requestAnimationFrame(gameLoop)
   }
-  
+
   gameLoop()
 })
 </script>
 
 <template>
-  <canvas 
+  <canvas
     id="gameCanvas"
     width="832"
     height="832"
